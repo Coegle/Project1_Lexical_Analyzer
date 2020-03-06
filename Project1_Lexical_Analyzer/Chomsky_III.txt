@@ -1,0 +1,385 @@
+8
+$
+_reserveWord
+// 保留字
+1 _reserveWord
+0
+11
+_reserveWord = break
+_reserveWord = case
+_reserveWord = char
+_reserveWord = int
+_reserveWord = if
+_reserveWord = for
+_reserveWord = void
+_reserveWord = float
+_reserveWord = return
+_reserveWord = do
+_reserveWord = else
+// 运算符
+1 _operator
+0
+10
+_operator = +
+_operator = -
+_operator = *
+_operator = &
+_operator = /
+_operator = %
+_operator = <=
+_operator = >=
+_operator = |
+_operator = =
+// 界符
+1 _delimiter
+0
+8
+_delimiter = {
+_delimiter = }
+_delimiter = (
+_delimiter = )
+_delimiter = ;
+_delimiter = ,
+_delimiter = [
+_delimiter = ]
+// 整数
+1 _integer
+2 _integer_Z1 _integer_Z2
+22
+_integer = 0 _integer_Z1
+_integer_Z1 = $
+_integer = 1 _integer_Z2
+_integer = 2 _integer_Z2
+_integer = 3 _integer_Z2
+_integer = 4 _integer_Z2
+_integer = 5 _integer_Z2
+_integer = 6 _integer_Z2
+_integer = 7 _integer_Z2
+_integer = 8 _integer_Z2
+_integer = 9 _integer_Z2
+_integer_Z2 = 0 _integer_Z2
+_integer_Z2 = 1 _integer_Z2
+_integer_Z2 = 2 _integer_Z2
+_integer_Z2 = 3 _integer_Z2
+_integer_Z2 = 4 _integer_Z2
+_integer_Z2 = 5 _integer_Z2
+_integer_Z2 = 6 _integer_Z2
+_integer_Z2 = 7 _integer_Z2
+_integer_Z2 = 8 _integer_Z2
+_integer_Z2 = 9 _integer_Z2
+_integer_Z2 = $
+// 小数
+1 _decimal
+2 _decimal_A _decimal_Z
+32
+_decimal = 0 _decimal
+_decimal = 1 _decimal
+_decimal = 2 _decimal
+_decimal = 3 _decimal
+_decimal = 4 _decimal
+_decimal = 5 _decimal
+_decimal = 6 _decimal
+_decimal = 7 _decimal
+_decimal = 8 _decimal
+_decimal = 9 _decimal
+_decimal = . _decimal_A
+_decimal_A = 0 _decimal_Z
+_decimal_A = 1 _decimal_Z
+_decimal_A = 2 _decimal_Z
+_decimal_A = 3 _decimal_Z
+_decimal_A = 4 _decimal_Z
+_decimal_A = 5 _decimal_Z
+_decimal_A = 6 _decimal_Z
+_decimal_A = 7 _decimal_Z
+_decimal_A = 8 _decimal_Z
+_decimal_A = 9 _decimal_Z
+_decimal_Z = 0 _decimal_Z
+_decimal_Z = 1 _decimal_Z
+_decimal_Z = 2 _decimal_Z
+_decimal_Z = 3 _decimal_Z
+_decimal_Z = 4 _decimal_Z
+_decimal_Z = 5 _decimal_Z
+_decimal_Z = 6 _decimal_Z
+_decimal_Z = 7 _decimal_Z
+_decimal_Z = 8 _decimal_Z
+_decimal_Z = 9 _decimal_Z
+_decimal_Z = $
+// 科学计数
+1 _complexNumber
+6 _complexNumber_A _complexNumber_B _complexNumber_C _complexNumber_D _complexNumber_E _complexNumber_Z
+79
+_scientificNotation = 0 _scientificNotation_B
+_scientificNotation = 1 _scientificNotation_B
+_scientificNotation = 2 _scientificNotation_B
+_scientificNotation = 3 _scientificNotation_B
+_scientificNotation = 4 _scientificNotation_B
+_scientificNotation = 5 _scientificNotation_B
+_scientificNotation = 6 _scientificNotation_B
+_scientificNotation = 7 _scientificNotation_B
+_scientificNotation = 8 _scientificNotation_B
+_scientificNotation = 9 _scientificNotation_B
+_scientificNotation = . _scientificNotation_A
+_scientificNotation_A = 0 _scientificNotation_C
+_scientificNotation_A = 1 _scientificNotation_C
+_scientificNotation_A = 2 _scientificNotation_C
+_scientificNotation_A = 3 _scientificNotation_C
+_scientificNotation_A = 4 _scientificNotation_C
+_scientificNotation_A = 5 _scientificNotation_C
+_scientificNotation_A = 6 _scientificNotation_C
+_scientificNotation_A = 7 _scientificNotation_C
+_scientificNotation_A = 8 _scientificNotation_C
+_scientificNotation_A = 9 _scientificNotation_C
+_scientificNotation_B = 0 _scientificNotation_B
+_scientificNotation_B = 1 _scientificNotation_B
+_scientificNotation_B = 2 _scientificNotation_B
+_scientificNotation_B = 3 _scientificNotation_B
+_scientificNotation_B = 4 _scientificNotation_B
+_scientificNotation_B = 5 _scientificNotation_B
+_scientificNotation_B = 6 _scientificNotation_B
+_scientificNotation_B = 7 _scientificNotation_B
+_scientificNotation_B = 8 _scientificNotation_B
+_scientificNotation_B = 9 _scientificNotation_B
+_scientificNotation_B = . _scientificNotation_A
+_scientificNotation_B = e _scientificNotation_D
+_scientificNotation_B = E _scientificNotation_D
+_scientificNotation_C = 0 _scientificNotation_C
+_scientificNotation_C = 1 _scientificNotation_C
+_scientificNotation_C = 2 _scientificNotation_C
+_scientificNotation_C = 3 _scientificNotation_C
+_scientificNotation_C = 4 _scientificNotation_C
+_scientificNotation_C = 5 _scientificNotation_C
+_scientificNotation_C = 6 _scientificNotation_C
+_scientificNotation_C = 7 _scientificNotation_C
+_scientificNotation_C = 8 _scientificNotation_C
+_scientificNotation_C = 9 _scientificNotation_C
+_scientificNotation_C = e _scientificNotation_D
+_scientificNotation_C = E _scientificNotation_D
+_scientificNotation_D = 0 _scientificNotation_Z
+_scientificNotation_D = 1 _scientificNotation_Z
+_scientificNotation_D = 2 _scientificNotation_Z
+_scientificNotation_D = 3 _scientificNotation_Z
+_scientificNotation_D = 4 _scientificNotation_Z
+_scientificNotation_D = 5 _scientificNotation_Z
+_scientificNotation_D = 6 _scientificNotation_Z
+_scientificNotation_D = 7 _scientificNotation_Z
+_scientificNotation_D = 8 _scientificNotation_Z
+_scientificNotation_D = 9 _scientificNotation_Z
+_scientificNotation_D = - _scientificNotation_E
+_scientificNotation_D = + _scientificNotation_E
+_scientificNotation_E = 0 _scientificNotation_Z
+_scientificNotation_E = 1 _scientificNotation_Z
+_scientificNotation_E = 2 _scientificNotation_Z
+_scientificNotation_E = 3 _scientificNotation_Z
+_scientificNotation_E = 4 _scientificNotation_Z
+_scientificNotation_E = 5 _scientificNotation_Z
+_scientificNotation_E = 6 _scientificNotation_Z
+_scientificNotation_E = 7 _scientificNotation_Z
+_scientificNotation_E = 8 _scientificNotation_Z
+_scientificNotation_E = 9 _scientificNotation_Z
+_scientificNotation_Z = 0 _scientificNotation_Z
+_scientificNotation_Z = 1 _scientificNotation_Z
+_scientificNotation_Z = 2 _scientificNotation_Z
+_scientificNotation_Z = 3 _scientificNotation_Z
+_scientificNotation_Z = 4 _scientificNotation_Z
+_scientificNotation_Z = 5 _scientificNotation_Z
+_scientificNotation_Z = 6 _scientificNotation_Z
+_scientificNotation_Z = 7 _scientificNotation_Z
+_scientificNotation_Z = 8 _scientificNotation_Z
+_scientificNotation_Z = 9 _scientificNotation_Z
+_scientificNotation_Z = $
+// 复数
+1 _scientificNotation
+6  _scientificNotation_A _scientificNotation_B _scientificNotation_C _scientificNotation_D _scientificNotation_E _scientificNotation_Z
+71
+_complexNumber = 0 _complexNumber
+_complexNumber = 1 _complexNumber
+_complexNumber = 2 _complexNumber
+_complexNumber = 3 _complexNumber
+_complexNumber = 4 _complexNumber
+_complexNumber = 5 _complexNumber
+_complexNumber = 6 _complexNumber
+_complexNumber = 7 _complexNumber
+_complexNumber = 8 _complexNumber
+_complexNumber = 9 _complexNumber
+_complexNumber = . _complexNumber_A
+_complexNumber = + _complexNumber_C
+_complexNumber = - _complexNumber_C
+_complexNumber = i _complexNumber_Z
+_complexNumber_A = 0 _complexNumber_B
+_complexNumber_A = 1 _complexNumber_B
+_complexNumber_A = 2 _complexNumber_B
+_complexNumber_A = 3 _complexNumber_B
+_complexNumber_A = 4 _complexNumber_B
+_complexNumber_A = 5 _complexNumber_B
+_complexNumber_A = 6 _complexNumber_B
+_complexNumber_A = 7 _complexNumber_B
+_complexNumber_A = 8 _complexNumber_B
+_complexNumber_A = 9 _complexNumber_B
+_complexNumber_B = 0 _complexNumber_B
+_complexNumber_B = 1 _complexNumber_B
+_complexNumber_B = 2 _complexNumber_B
+_complexNumber_B = 3 _complexNumber_B
+_complexNumber_B = 4 _complexNumber_B
+_complexNumber_B = 5 _complexNumber_B
+_complexNumber_B = 6 _complexNumber_B
+_complexNumber_B = 7 _complexNumber_B
+_complexNumber_B = 8 _complexNumber_B
+_complexNumber_B = 9 _complexNumber_B
+_complexNumber_B = + _complexNumber_C
+_complexNumber_B = - _complexNumber_C
+_complexNumber_B = i _complexNumber_Z
+_complexNumber_C = 0 _complexNumber_C
+_complexNumber_C = 1 _complexNumber_C
+_complexNumber_C = 2 _complexNumber_C
+_complexNumber_C = 3 _complexNumber_C
+_complexNumber_C = 4 _complexNumber_C
+_complexNumber_C = 5 _complexNumber_C
+_complexNumber_C = 6 _complexNumber_C
+_complexNumber_C = 7 _complexNumber_C
+_complexNumber_C = 8 _complexNumber_C
+_complexNumber_C = 9 _complexNumber_C
+_complexNumber_C = i _complexNumber_Z
+_complexNumber_C = . _complexNumber_D
+_complexNumber_D = 0 _complexNumber_E
+_complexNumber_D = 1 _complexNumber_E
+_complexNumber_D = 2 _complexNumber_E
+_complexNumber_D = 3 _complexNumber_E
+_complexNumber_D = 4 _complexNumber_E
+_complexNumber_D = 5 _complexNumber_E
+_complexNumber_D = 6 _complexNumber_E
+_complexNumber_D = 7 _complexNumber_E
+_complexNumber_D = 8 _complexNumber_E
+_complexNumber_D = 9 _complexNumber_E
+_complexNumber_E = 0 _complexNumber_E
+_complexNumber_E = 1 _complexNumber_E
+_complexNumber_E = 2 _complexNumber_E
+_complexNumber_E = 3 _complexNumber_E
+_complexNumber_E = 4 _complexNumber_E
+_complexNumber_E = 5 _complexNumber_E
+_complexNumber_E = 6 _complexNumber_E
+_complexNumber_E = 7 _complexNumber_E
+_complexNumber_E = 8 _complexNumber_E
+_complexNumber_E = 9 _complexNumber_E
+_complexNumber_E = i _complexNumber_Z
+_complexNumber_Z = $
+// 标识符
+1 _identifier
+1 _identifier_Z
+116
+_identifier = _ _identifier_Z
+_identifier = a _identifier_Z
+_identifier = b _identifier_Z
+_identifier = c _identifier_Z
+_identifier = d _identifier_Z
+_identifier = e _identifier_Z
+_identifier = f _identifier_Z
+_identifier = g _identifier_Z
+_identifier = h _identifier_Z
+_identifier = i _identifier_Z
+—identifier = j _identifier_Z
+—identifier = k _identifier_Z
+—identifier = l _identifier_Z
+—identifier = m _identifier_Z
+—identifier = n _identifier_Z
+—identifier = o _identifier_Z
+—identifier = p _identifier_Z
+—identifier = q _identifier_Z
+—identifier = r _identifier_Z
+—identifier = s _identifier_Z
+—identifier = t _identifier_Z
+—identifier = u _identifier_Z
+—identifier = v _identifier_Z
+—identifier = w _identifier_Z
+—identifier = x _identifier_Z
+—identifier = y _identifier_Z
+_identifier = z _identifier_Z
+_identifier = A _identifier_Z
+_identifier = B _identifier_Z
+_identifier = C _identifier_Z
+_identifier = D _identifier_Z
+_identifier = E _identifier_Z
+_identifier = F _identifier_Z
+_identifier = G _identifier_Z
+_identifier = H _identifier_Z
+_identifier = I _identifier_Z
+—identifier = J _identifier_Z
+—identifier = K _identifier_Z
+—identifier = L _identifier_Z
+—identifier = M _identifier_Z
+—identifier = N _identifier_Z
+—identifier = O _identifier_Z
+—identifier = P _identifier_Z
+—identifier = Q _identifier_Z
+—identifier = R _identifier_Z
+—identifier = S _identifier_Z
+—identifier = T _identifier_Z
+—identifier = U _identifier_Z
+—identifier = V _identifier_Z
+—identifier = W _identifier_Z
+—identifier = X _identifier_Z
+—identifier = Y _identifier_Z
+_identifier = Z _identifier_Z
+_identifier_Z = 0 _identifier_Z
+_identifier_Z = 1 _identifier_Z
+_identifier_Z = 2 _identifier_Z
+_identifier_Z = 3 _identifier_Z
+_identifier_Z = 4 _identifier_Z
+_identifier_Z = 5 _identifier_Z
+_identifier_Z = 6 _identifier_Z
+_identifier_Z = 7 _identifier_Z
+_identifier_Z = 8 _identifier_Z
+_identifier_Z = 9 _identifier_Z
+_identifier_Z = _ _identifier_Z
+_identifier_Z = a _identifier_Z
+_identifier_Z = b _identifier_Z
+_identifier_Z = c _identifier_Z
+_identifier_Z = d _identifier_Z
+_identifier_Z = e _identifier_Z
+_identifier_Z = f _identifier_Z
+_identifier_Z = g _identifier_Z
+_identifier_Z = h _identifier_Z
+_identifier_Z = i _identifier_Z
+_identifier_Z = j _identifier_Z
+_identifier_Z = k _identifier_Z
+_identifier_Z = l _identifier_Z
+_identifier_Z = m _identifier_Z
+_identifier_Z = n _identifier_Z
+_identifier_Z = o _identifier_Z
+_identifier_Z = p _identifier_Z
+_identifier_Z = q _identifier_Z
+_identifier_Z = r _identifier_Z
+_identifier_Z = s _identifier_Z
+_identifier_Z = t _identifier_Z
+_identifier_Z = u _identifier_Z
+_identifier_Z = v _identifier_Z
+_identifier_Z = w _identifier_Z
+_identifier_Z = x _identifier_Z
+_identifier_Z = y _identifier_Z
+_identifier_Z = z _identifier_Z
+_identifier_Z = A _identifier_Z
+_identifier_Z = B _identifier_Z
+_identifier_Z = C _identifier_Z
+_identifier_Z = D _identifier_Z
+_identifier_Z = E _identifier_Z
+_identifier_Z = F _identifier_Z
+_identifier_Z = G _identifier_Z
+_identifier_Z = H _identifier_Z
+_identifier_Z = I _identifier_Z
+_identifier_Z = J _identifier_Z
+_identifier_Z = K _identifier_Z
+_identifier_Z = L _identifier_Z
+_identifier_Z = M _identifier_Z
+_identifier_Z = N _identifier_Z
+_identifier_Z = O _identifier_Z
+_identifier_Z = P _identifier_Z
+_identifier_Z = Q _identifier_Z
+_identifier_Z = R _identifier_Z
+_identifier_Z = S _identifier_Z
+_identifier_Z = T _identifier_Z
+_identifier_Z = U _identifier_Z
+_identifier_Z = V _identifier_Z
+_identifier_Z = W _identifier_Z
+_identifier_Z = X _identifier_Z
+_identifier_Z = Y _identifier_Z
+_identifier_Z = Z _identifier_Z
+_identifier_Z = $

@@ -10,6 +10,6 @@ public:
 	vector<string> stateList;
 	vector<string> endState;
 	string beginState;
-	vector<string> input;
+	vector<char> input;
 	map<string, map<string, string>> adjList;
 };

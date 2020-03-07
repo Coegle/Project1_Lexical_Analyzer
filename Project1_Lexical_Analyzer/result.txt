@@ -1,0 +1,7 @@
+1 ERRORTYPE 1de
+2 _identifier_Z _de
+3 _identifier_Z test
+3 _identifier_Z test2
+4 _identifier_Z t21
+5 _identifier_Z My_dsa
+6 _identifier_Z de2_D

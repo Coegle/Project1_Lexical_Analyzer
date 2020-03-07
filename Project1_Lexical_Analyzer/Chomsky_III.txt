@@ -1,7 +1,6 @@
-8
 $
 _reserveWord
-// 保留字
+
 1 _reserveWord
 0
 11
@@ -276,22 +275,22 @@ _identifier = f _identifier_Z
 _identifier = g _identifier_Z
 _identifier = h _identifier_Z
 _identifier = i _identifier_Z
-—identifier = j _identifier_Z
-—identifier = k _identifier_Z
-—identifier = l _identifier_Z
-—identifier = m _identifier_Z
-—identifier = n _identifier_Z
-—identifier = o _identifier_Z
-—identifier = p _identifier_Z
-—identifier = q _identifier_Z
-—identifier = r _identifier_Z
-—identifier = s _identifier_Z
-—identifier = t _identifier_Z
-—identifier = u _identifier_Z
-—identifier = v _identifier_Z
-—identifier = w _identifier_Z
-—identifier = x _identifier_Z
-—identifier = y _identifier_Z
+_identifier = j _identifier_Z
+_identifier = k _identifier_Z
+_identifier = l _identifier_Z
+_identifier = m _identifier_Z
+_identifier = n _identifier_Z
+_identifier = o _identifier_Z
+_identifier = p _identifier_Z
+_identifier = q _identifier_Z
+_identifier = r _identifier_Z
+_identifier = s _identifier_Z
+_identifier = t _identifier_Z
+_identifier = u _identifier_Z
+_identifier = v _identifier_Z
+_identifier = w _identifier_Z
+_identifier = x _identifier_Z
+_identifier = y _identifier_Z
 _identifier = z _identifier_Z
 _identifier = A _identifier_Z
 _identifier = B _identifier_Z
@@ -302,22 +301,22 @@ _identifier = F _identifier_Z
 _identifier = G _identifier_Z
 _identifier = H _identifier_Z
 _identifier = I _identifier_Z
-—identifier = J _identifier_Z
-—identifier = K _identifier_Z
-—identifier = L _identifier_Z
-—identifier = M _identifier_Z
-—identifier = N _identifier_Z
-—identifier = O _identifier_Z
-—identifier = P _identifier_Z
-—identifier = Q _identifier_Z
-—identifier = R _identifier_Z
-—identifier = S _identifier_Z
-—identifier = T _identifier_Z
-—identifier = U _identifier_Z
-—identifier = V _identifier_Z
-—identifier = W _identifier_Z
-—identifier = X _identifier_Z
-—identifier = Y _identifier_Z
+_identifier = J _identifier_Z
+_identifier = K _identifier_Z
+_identifier = L _identifier_Z
+_identifier = M _identifier_Z
+_identifier = N _identifier_Z
+_identifier = O _identifier_Z
+_identifier = P _identifier_Z
+_identifier = Q _identifier_Z
+_identifier = R _identifier_Z
+_identifier = S _identifier_Z
+_identifier = T _identifier_Z
+_identifier = U _identifier_Z
+_identifier = V _identifier_Z
+_identifier = W _identifier_Z
+_identifier = X _identifier_Z
+_identifier = Y _identifier_Z
 _identifier = Z _identifier_Z
 _identifier_Z = 0 _identifier_Z
 _identifier_Z = 1 _identifier_Z

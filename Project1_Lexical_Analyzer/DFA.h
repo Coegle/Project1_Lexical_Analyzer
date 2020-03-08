@@ -7,9 +7,9 @@ class DFA {
 
 public:
 	string token;
-	vector<string> stateList;
-	vector<string> endState;
-	string beginState;
+	vector<int> stateList;
+	map<int, string> endState;
+	int beginState;
 	vector<char> input;
-	map<string, map<string, string>> adjList;
+	map<char, map<int, int>> adjList;
 };

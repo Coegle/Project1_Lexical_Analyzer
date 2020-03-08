@@ -11,6 +11,6 @@ public:
 	map<string,string> endState;
 	vector<string> stateList;
 	vector<char> input;
-	map<char, map<string, string>> adjList; // ÊäÈë ³õÌ¬ ÖÕÌ¬
+	map<char, multimap<string, string>> adjList; // ÊäÈë ³õÌ¬ ÖÕÌ¬
 };
 

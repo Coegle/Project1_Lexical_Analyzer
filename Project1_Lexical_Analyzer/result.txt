@@ -1,7 +1,14 @@
-1 ERRORTYPE 1de
+1 _integer_Z2 1
 2 _identifier_Z _de
 3 _identifier_Z test
 3 _identifier_Z test2
 4 _identifier_Z t21
 5 _identifier_Z My_dsa
 6 _identifier_Z de2_D
+7 _decimal_Z 2.2
+8 _scientificNotation_Z 2e1
+9 _complexNumber_Z 1+2i
+10 _complexNumber_Z 2i
+11 _decimal_Z 2.33
+12 _decimal_Z .454
+13 _decimal_Z .4

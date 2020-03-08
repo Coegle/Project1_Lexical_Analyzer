@@ -1,5 +1,6 @@
 $
 _reservedWord
+break case char int if for void float return do else
 5 _integer _decimal _complexNumber _scientificNotation _identifier
 _integer = 0 _integer_Z1
 _integer_Z1 = $

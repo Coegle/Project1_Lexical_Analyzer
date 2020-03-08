@@ -97,7 +97,14 @@ void test(analyzer& analysis, const char* sourcePath, const char* resultPath) {
 			}
 			// 整个单词都匹配
 			if (analysis.dfa.endState.find(state) != analysis.dfa.endState.end() && tokenList.size() == 0) {
-				tokenList.push_back(make_pair(analysis.dfa.endState[state], substr[i].substr(beginIndex, endIndex - beginIndex)));
+
+				auto it_reservedWord = find(analysis.reservedWord.begin(), analysis.reservedWord.end(), substr[i].substr(beginIndex, endIndex - beginIndex));
+				
+				if (it_reservedWord != analysis.reservedWord.end()) {
+					tokenList.push_back(make_pair(analysis.reservedWordLabel, *it_reservedWord));
+				} else {
+					tokenList.push_back(make_pair(analysis.dfa.endState[state], substr[i].substr(beginIndex, endIndex - beginIndex)));
+				}
 			}
 			append_output(resultPath,lineNum, tokenList);
 		}
@@ -119,6 +126,12 @@ void input(analyzer& analysis, const char* path) {
 	}
 	string line;
 	fin >> analysis.blank >> analysis.reservedWordLabel;
+
+	// 关键字
+	fin.ignore();
+	getline(fin, line);
+	analysis.reservedWord = split(line, " ");
+
 	int startNodeNum; //开始结点数目
 	fin >> startNodeNum;
 

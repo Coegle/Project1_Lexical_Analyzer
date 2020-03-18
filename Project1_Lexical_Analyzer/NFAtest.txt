@@ -1,8 +1,8 @@
 $
 //
 break continue return case char int if switch for void float double short long unsigned signed do while else sizeof goto case default struct union const volatile  do typedef static auto register extern
-7 _integer_S _decimal_S _complexNumber_S _scientificNotation_S _identifier_S _op_S _delimiter_S
-52
+9 _integer_S _decimal_S _complexNumber_S _scientificNotation_S _identifier_S _op_S _delimiter_S _char_S _string_S
+54
 _integer_Z1 int_const
 _integer_Z2 int_const
 _decimal_Z float_const
@@ -55,6 +55,8 @@ _op_%= %=
 _op_== ==
 _op_*= *=
 _op_!= !=
+_char_Z char_const
+_string_Z string
 
 _integer_S = 0 _integer_Z1
 _integer_Z1 = $
@@ -477,3 +479,153 @@ _delimiter_[ = $
 _delimiter_] = $
 _delimiter_; = $
 _delimiter_, = $
+
+_char_S = ' _char_A
+_char_A = a _char_B
+_char_A = b _char_B
+_char_A = c _char_B
+_char_A = d _char_B
+_char_A = e _char_B
+_char_A = f _char_B
+_char_A = g _char_B
+_char_A = h _char_B
+_char_A = i _char_B
+_char_A = j _char_B
+_char_A = k _char_B
+_char_A = l _char_B
+_char_A = m _char_B
+_char_A = n _char_B
+_char_A = o _char_B
+_char_A = p _char_B
+_char_A = q _char_B
+_char_A = r _char_B
+_char_A = s _char_B
+_char_A = t _char_B
+_char_A = u _char_B
+_char_A = v _char_B
+_char_A = w _char_B
+_char_A = x _char_B
+_char_A = y _char_B
+_char_A = z _char_B
+_char_A = A _char_B
+_char_A = B _char_B
+_char_A = C _char_B
+_char_A = D _char_B
+_char_A = E _char_B
+_char_A = F _char_B
+_char_A = G _char_B
+_char_A = H _char_B
+_char_A = I _char_B
+_char_A = J _char_B
+_char_A = K _char_B
+_char_A = L _char_B
+_char_A = M _char_B
+_char_A = N _char_B
+_char_A = O _char_B
+_char_A = P _char_B
+_char_A = Q _char_B
+_char_A = R _char_B
+_char_A = S _char_B
+_char_A = T _char_B
+_char_A = U _char_B
+_char_A = V _char_B
+_char_A = W _char_B
+_char_A = X _char_B
+_char_A = Y _char_B
+_char_A = Z _char_B
+_char_A = 0 _char_B
+_char_A = 1 _char_B
+_char_A = 2 _char_B
+_char_A = 3 _char_B
+_char_A = 4 _char_B
+_char_A = 5 _char_B
+_char_A = 6 _char_B
+_char_A = 7 _char_B
+_char_A = 8 _char_B
+_char_A = 9 _char_B
+_char_A = , _char_B
+_char_A = . _char_B
+_char_A = ! _char_B
+_char_A = * _char_B
+_char_A = % _char_B
+_char_A = < _char_B
+_char_A = @ _char_B
+_char_A = ? _char_B
+_char_A = = _char_B
+_char_B = ' _char_Z
+_char_Z = $
+
+_string_S = " _string_A
+_string_A = a _string_A
+_string_A = b _string_A
+_string_A = c _string_A
+_string_A = d _string_A
+_string_A = e _string_A
+_string_A = f _string_A
+_string_A = g _string_A
+_string_A = h _string_A
+_string_A = i _string_A
+_string_A = j _string_A
+_string_A = k _string_A
+_string_A = l _string_A
+_string_A = m _string_A
+_string_A = n _string_A
+_string_A = o _string_A
+_string_A = p _string_A
+_string_A = q _string_A
+_string_A = r _string_A
+_string_A = s _string_A
+_string_A = t _string_A
+_string_A = u _string_A
+_string_A = v _string_A
+_string_A = w _string_A
+_string_A = x _string_A
+_string_A = y _string_A
+_string_A = z _string_A
+_string_A = A _string_A
+_string_A = B _string_A
+_string_A = C _string_A
+_string_A = D _string_A
+_string_A = E _string_A
+_string_A = F _string_A
+_string_A = G _string_A
+_string_A = H _string_A
+_string_A = I _string_A
+_string_A = J _string_A
+_string_A = K _string_A
+_string_A = L _string_A
+_string_A = M _string_A
+_string_A = N _string_A
+_string_A = O _string_A
+_string_A = P _string_A
+_string_A = Q _string_A
+_string_A = R _string_A
+_string_A = S _string_A
+_string_A = T _string_A
+_string_A = U _string_A
+_string_A = V _string_A
+_string_A = W _string_A
+_string_A = X _string_A
+_string_A = Y _string_A
+_string_A = Z _string_A
+_string_A = 0 _string_A
+_string_A = 1 _string_A
+_string_A = 2 _string_A
+_string_A = 3 _string_A
+_string_A = 4 _string_A
+_string_A = 5 _string_A
+_string_A = 6 _string_A
+_string_A = 7 _string_A
+_string_A = 8 _string_A
+_string_A = 9 _string_A
+_string_A = , _string_A
+_string_A = . _string_A
+_string_A = ! _string_A
+_string_A = * _string_A
+_string_A = % _string_A
+_string_A = < _string_A
+_string_A = @ _string_A
+_string_A = ? _string_A
+_string_A = = _string_A
+_string_A = " _string_Z
+_string_Z = $

@@ -8,3 +8,6 @@
 						continue;
 					}
 				}
+	analysis.inputNFA("NFAtest.txt");
+	analysis.NFAtoDFA();
+	analysis.analyze("source.txt", "result.txt");

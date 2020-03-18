@@ -1,18 +1,72 @@
 $
-_reservedWord
-break case char int if for void float return do else
-5 _integer _decimal _complexNumber _scientificNotation _identifier
-_integer = 0 _integer_Z1
+//
+break continue return case char int if switch for void float double short long unsigned signed do while else sizeof goto case default struct union const volatile  do typedef static auto register extern
+7 _integer_S _decimal_S _complexNumber_S _scientificNotation_S _identifier_S _op_S _delimiter_S
+52
+_integer_Z1 int_const
+_integer_Z2 int_const
+_decimal_Z float_const
+_complexNumber_Z complex_const
+_identifier_Z id
+_scientificNotation float_const
+_delimiter_( (
+_delimiter_) )
+_delimiter_{ {
+_delimiter_} }
+_delimiter_[ [
+_delimiter_] ]
+_delimiter_; ;
+_delimiter_, ,
+_op_< <
+_op_> >
+_op_<= <=
+_op_>= >=
+_op_>> >>
+_op_<< <<
+_op_<<= <<=
+_op_>>= >>=
+_op_. .
+_op_... ...
+_op_- -
+_op_+ +
+_op_-= -=
+_op_+= +=
+_op_++ ++
+_op_-- --
+_op_-> ->
+_op_& &
+_op_| |
+_op_&& &&
+_op_|| ||
+_op_&= &=
+_op_|= |=
+_op_~ ~
+_op_: :
+_op_? ?
+_op_^ ^
+_op_/ /
+_op_% %
+_op_= =
+_op_* *
+_op_! !
+_op_^= ^=
+_op_/= /=
+_op_%= %=
+_op_== ==
+_op_*= *=
+_op_!= !=
+
+_integer_S = 0 _integer_Z1
 _integer_Z1 = $
-_integer = 1 _integer_Z2
-_integer = 2 _integer_Z2
-_integer = 3 _integer_Z2
-_integer = 4 _integer_Z2
-_integer = 5 _integer_Z2
-_integer = 6 _integer_Z2
-_integer = 7 _integer_Z2
-_integer = 8 _integer_Z2
-_integer = 9 _integer_Z2
+_integer_S = 1 _integer_Z2
+_integer_S = 2 _integer_Z2
+_integer_S = 3 _integer_Z2
+_integer_S = 4 _integer_Z2
+_integer_S = 5 _integer_Z2
+_integer_S = 6 _integer_Z2
+_integer_S = 7 _integer_Z2
+_integer_S = 8 _integer_Z2
+_integer_S = 9 _integer_Z2
 _integer_Z2 = 0 _integer_Z2
 _integer_Z2 = 1 _integer_Z2
 _integer_Z2 = 2 _integer_Z2
@@ -25,17 +79,17 @@ _integer_Z2 = 8 _integer_Z2
 _integer_Z2 = 9 _integer_Z2
 _integer_Z2 = $
 
-_decimal = 0 _decimal
-_decimal = 1 _decimal
-_decimal = 2 _decimal
-_decimal = 3 _decimal
-_decimal = 4 _decimal
-_decimal = 5 _decimal
-_decimal = 6 _decimal
-_decimal = 7 _decimal
-_decimal = 8 _decimal
-_decimal = 9 _decimal
-_decimal = . _decimal_A
+_decimal_S = 0 _decimal_S
+_decimal_S = 1 _decimal_S
+_decimal_S = 2 _decimal_S
+_decimal_S = 3 _decimal_S
+_decimal_S = 4 _decimal_S
+_decimal_S = 5 _decimal_S
+_decimal_S = 6 _decimal_S
+_decimal_S = 7 _decimal_S
+_decimal_S = 8 _decimal_S
+_decimal_S = 9 _decimal_S
+_decimal_S = . _decimal_A
 _decimal_A = 0 _decimal_Z
 _decimal_A = 1 _decimal_Z
 _decimal_A = 2 _decimal_Z
@@ -58,17 +112,17 @@ _decimal_Z = 8 _decimal_Z
 _decimal_Z = 9 _decimal_Z
 _decimal_Z = $
 
-_scientificNotation = 0 _scientificNotation_B
-_scientificNotation = 1 _scientificNotation_B
-_scientificNotation = 2 _scientificNotation_B
-_scientificNotation = 3 _scientificNotation_B
-_scientificNotation = 4 _scientificNotation_B
-_scientificNotation = 5 _scientificNotation_B
-_scientificNotation = 6 _scientificNotation_B
-_scientificNotation = 7 _scientificNotation_B
-_scientificNotation = 8 _scientificNotation_B
-_scientificNotation = 9 _scientificNotation_B
-_scientificNotation = . _scientificNotation_A
+_scientificNotation_S = 0 _scientificNotation_B
+_scientificNotation_S = 1 _scientificNotation_B
+_scientificNotation_S = 2 _scientificNotation_B
+_scientificNotation_S = 3 _scientificNotation_B
+_scientificNotation_S = 4 _scientificNotation_B
+_scientificNotation_S = 5 _scientificNotation_B
+_scientificNotation_S = 6 _scientificNotation_B
+_scientificNotation_S = 7 _scientificNotation_B
+_scientificNotation_S = 8 _scientificNotation_B
+_scientificNotation_S = 9 _scientificNotation_B
+_scientificNotation_S = . _scientificNotation_A
 _scientificNotation_A = 0 _scientificNotation_C
 _scientificNotation_A = 1 _scientificNotation_C
 _scientificNotation_A = 2 _scientificNotation_C
@@ -138,20 +192,20 @@ _scientificNotation_Z = 8 _scientificNotation_Z
 _scientificNotation_Z = 9 _scientificNotation_Z
 _scientificNotation_Z = $
 
-_complexNumber = 0 _complexNumber
-_complexNumber = 1 _complexNumber
-_complexNumber = 2 _complexNumber
-_complexNumber = 3 _complexNumber
-_complexNumber = 4 _complexNumber
-_complexNumber = 5 _complexNumber
-_complexNumber = 6 _complexNumber
-_complexNumber = 7 _complexNumber
-_complexNumber = 8 _complexNumber
-_complexNumber = 9 _complexNumber
-_complexNumber = . _complexNumber_A
-_complexNumber = + _complexNumber_C
-_complexNumber = - _complexNumber_C
-_complexNumber = i _complexNumber_Z
+_complexNumber_S = 0 _complexNumber_S
+_complexNumber_S = 1 _complexNumber_S
+_complexNumber_S = 2 _complexNumber_S
+_complexNumber_S = 3 _complexNumber_S
+_complexNumber_S = 4 _complexNumber_S
+_complexNumber_S = 5 _complexNumber_S
+_complexNumber_S = 6 _complexNumber_S
+_complexNumber_S = 7 _complexNumber_S
+_complexNumber_S = 8 _complexNumber_S
+_complexNumber_S = 9 _complexNumber_S
+_complexNumber_S = . _complexNumber_A
+_complexNumber_S = + _complexNumber_C
+_complexNumber_S = - _complexNumber_C
+_complexNumber_S = i _complexNumber_Z
 _complexNumber_A = 0 _complexNumber_B
 _complexNumber_A = 1 _complexNumber_B
 _complexNumber_A = 2 _complexNumber_B
@@ -210,59 +264,59 @@ _complexNumber_E = 9 _complexNumber_E
 _complexNumber_E = i _complexNumber_Z
 _complexNumber_Z = $
 
-_identifier = _ _identifier_Z
-_identifier = a _identifier_Z
-_identifier = b _identifier_Z
-_identifier = c _identifier_Z
-_identifier = d _identifier_Z
-_identifier = e _identifier_Z
-_identifier = f _identifier_Z
-_identifier = g _identifier_Z
-_identifier = h _identifier_Z
-_identifier = i _identifier_Z
-_identifier = j _identifier_Z
-_identifier = k _identifier_Z
-_identifier = l _identifier_Z
-_identifier = m _identifier_Z
-_identifier = n _identifier_Z
-_identifier = o _identifier_Z
-_identifier = p _identifier_Z
-_identifier = q _identifier_Z
-_identifier = r _identifier_Z
-_identifier = s _identifier_Z
-_identifier = t _identifier_Z
-_identifier = u _identifier_Z
-_identifier = v _identifier_Z
-_identifier = w _identifier_Z
-_identifier = x _identifier_Z
-_identifier = y _identifier_Z
-_identifier = z _identifier_Z
-_identifier = A _identifier_Z
-_identifier = B _identifier_Z
-_identifier = C _identifier_Z
-_identifier = D _identifier_Z
-_identifier = E _identifier_Z
-_identifier = F _identifier_Z
-_identifier = G _identifier_Z
-_identifier = H _identifier_Z
-_identifier = I _identifier_Z
-_identifier = J _identifier_Z
-_identifier = K _identifier_Z
-_identifier = L _identifier_Z
-_identifier = M _identifier_Z
-_identifier = N _identifier_Z
-_identifier = O _identifier_Z
-_identifier = P _identifier_Z
-_identifier = Q _identifier_Z
-_identifier = R _identifier_Z
-_identifier = S _identifier_Z
-_identifier = T _identifier_Z
-_identifier = U _identifier_Z
-_identifier = V _identifier_Z
-_identifier = W _identifier_Z
-_identifier = X _identifier_Z
-_identifier = Y _identifier_Z
-_identifier = Z _identifier_Z
+_identifier_S = _ _identifier_Z
+_identifier_S = a _identifier_Z
+_identifier_S = b _identifier_Z
+_identifier_S = c _identifier_Z
+_identifier_S = d _identifier_Z
+_identifier_S = e _identifier_Z
+_identifier_S = f _identifier_Z
+_identifier_S = g _identifier_Z
+_identifier_S = h _identifier_Z
+_identifier_S = i _identifier_Z
+_identifier_S = j _identifier_Z
+_identifier_S = k _identifier_Z
+_identifier_S = l _identifier_Z
+_identifier_S = m _identifier_Z
+_identifier_S = n _identifier_Z
+_identifier_S = o _identifier_Z
+_identifier_S = p _identifier_Z
+_identifier_S = q _identifier_Z
+_identifier_S = r _identifier_Z
+_identifier_S = s _identifier_Z
+_identifier_S = t _identifier_Z
+_identifier_S = u _identifier_Z
+_identifier_S = v _identifier_Z
+_identifier_S = w _identifier_Z
+_identifier_S = x _identifier_Z
+_identifier_S = y _identifier_Z
+_identifier_S = z _identifier_Z
+_identifier_S = A _identifier_Z
+_identifier_S = B _identifier_Z
+_identifier_S = C _identifier_Z
+_identifier_S = D _identifier_Z
+_identifier_S = E _identifier_Z
+_identifier_S = F _identifier_Z
+_identifier_S = G _identifier_Z
+_identifier_S = H _identifier_Z
+_identifier_S = I _identifier_Z
+_identifier_S = J _identifier_Z
+_identifier_S = K _identifier_Z
+_identifier_S = L _identifier_Z
+_identifier_S = M _identifier_Z
+_identifier_S = N _identifier_Z
+_identifier_S = O _identifier_Z
+_identifier_S = P _identifier_Z
+_identifier_S = Q _identifier_Z
+_identifier_S = R _identifier_Z
+_identifier_S = S _identifier_Z
+_identifier_S = T _identifier_Z
+_identifier_S = U _identifier_Z
+_identifier_S = V _identifier_Z
+_identifier_S = W _identifier_Z
+_identifier_S = X _identifier_Z
+_identifier_S = Y _identifier_Z
+_identifier_S = Z _identifier_Z
 _identifier_Z = 0 _identifier_Z
 _identifier_Z = 1 _identifier_Z
 _identifier_Z = 2 _identifier_Z
@@ -327,3 +381,99 @@ _identifier_Z = X _identifier_Z
 _identifier_Z = Y _identifier_Z
 _identifier_Z = Z _identifier_Z
 _identifier_Z = $
+
+_op_S = > _op_>
+_op_S = < _op_<
+_op_S = . _op_.
+_op_S = - _op_-
+_op_S = + _op_+
+_op_S = & _op_&
+_op_S = - _op_E
+_op_S = | _op_|
+_op_S = ~ _op_~
+_op_S = : _op_:
+_op_S = ? _op_?
+_op_S = ^ _op_^
+_op_S = / _op_/
+_op_S = % _op_%
+_op_S = = _op_=
+_op_S = * _op_*
+_op_S = ! _op_!
+_op_< = < _op_<<
+_op_< = = _op_<=
+_op_< = $
+_op_> = > _op_>>
+_op_> = = _op_>=
+_op_> = $
+_op_<= = $
+_op_>= = $
+_op_>> = = _op_>>=
+_op_>> = $
+_op_<< = = _op_<<=
+_op_<< = $
+_op_<<= = $
+_op_>>= = $
+_op_. = . _op_H
+_op_. = $
+_op_H = . _op_...
+_op_... = $
+_op_- = = _op_-=
+_op_- = - _op_--
+_op_- = $
+_op_+ = = _op_+=
+_op_+ = + _op_++
+_op_+ = $
+_op_-= = $
+_op_+= = $
+_op_++ = $
+_op_-- = $
+_op_E = > _op_->
+_op_-> = $
+_op_& = = _op_&=
+_op_& = & _op_&&
+_op_& = $
+_op_| = = _op_|=
+_op_| = | _op_||
+_op_| = $
+_op_&& = $
+_op_|| = $
+_op_&= = $
+_op_|= = $
+_op_~ = $
+_op_: = $
+_op_? = $
+_op_^ = = _op_^=
+_op_^ = $
+_op_/ = = _op_/=
+_op_/ = $
+_op_% = = _op_%=
+_op_% = $
+_op_= = = _op_==
+_op_= = $
+_op_* = = _op_*=
+_op_* = $
+_op_! = = _op_!=
+_op_! = $
+_op_^= = $
+_op_/= = $
+_op_%= = $
+_op_== = $
+_op_*= = $
+_op_!= = $
+
+_delimiter_S = ( _delimiter_(
+_delimiter_S = ) _delimiter_)
+_delimiter_S = { _delimiter_{
+_delimiter_S = } _delimiter_}
+_delimiter_S = [ _delimiter_[
+_delimiter_S = ] _delimiter_]
+_delimiter_S = ; _delimiter_;
+_delimiter_S = , _delimiter_,
+_delimiter_( = $
+_delimiter_) = $
+_delimiter_{ = $
+_delimiter_} = $
+_delimiter_[ = $
+_delimiter_] = $
+_delimiter_; = $
+_delimiter_, = $

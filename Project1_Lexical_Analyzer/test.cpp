@@ -6,14 +6,21 @@
 #include "NFA.h"
 #include "DFA.h"
 using namespace std;
-class analyzer {
+class Lexer {
 
 public:
 	NFA nfa;
 	DFA dfa;
-	char blank;
-	string reservedWordLabel;
+	char blank; // 表示文法中的空
+	string annotation; // 表示注释开始
+	string reservedWordLabel; 
 	vector<string> reservedWord;
+	set<string> move(set<string>& state, char a);
+	void enClousure(set<string>& state);
+	void NFAtoDFA();
+	void analyze(const char* sourcePath, const char* resultPath);
+	void inputNFA(const char* path);
+	void append_output(const char* resultPath, int lineNum, vector<pair<string, string>>& tokenList);
 };
 
 //字符串分割函数
@@ -38,16 +45,18 @@ std::vector<std::string> split(std::string str, std::string pattern)
 }
 
 // 输出
-void append_output(const char* resultPath, int lineNum, vector<pair<string, string>>& tokenList) {
+void Lexer::append_output(const char* resultPath, int lineNum, vector<pair<string, string>>& tokenList) {
 	ofstream fresult(resultPath, fstream::out|fstream::app);
-	for (auto it = tokenList.begin(); it != tokenList.end(); it++) {
+	for (auto it = tokenList.begin(); it != tokenList.end(); it++)
+	{
 		fresult << lineNum << " " << it->first << " " << it->second << endl;
 	}
 	fresult.close();
 }
 
-// 对源代码处理
-void test(analyzer& analysis, const char* sourcePath, const char* resultPath) {
+/*对源代码处理
+从 sourcePath 读取源程序，输出到 resultPath */
+void Lexer::analyze( const char* sourcePath, const char* resultPath) {
 	ifstream fsource(sourcePath);
 
 	if (fsource.fail()) {
@@ -58,7 +67,22 @@ void test(analyzer& analysis, const char* sourcePath, const char* resultPath) {
 	int lineNum = 1;
 	string line;
 	while (getline(fsource, line)) {//每行
-		vector<string> substr = split(line, " ");
+		vector<string> tmp_substr = split(line, " ");
+		vector<string> substr;
+		// 将空格、制表符、注释去除
+
+		for (int i = 0; i < tmp_substr.size(); i++) {
+			vector<string> tmp = split(tmp_substr[i], "\t");
+			int j;
+			for ( j = 0; j < tmp.size(); j++) {
+				if (tmp[j].find(annotation) != string::npos) {
+					substr.insert(substr.end(), tmp.begin(), tmp.begin() + j);
+					break;
+				}
+			}
+			if (j < tmp.size())break;
+			substr.insert(substr.end(), tmp.begin(), tmp.end());
+		}
 
 		for (int i = 0; i < substr.size(); i++) { // 每个「单词」
 
@@ -68,25 +92,30 @@ void test(analyzer& analysis, const char* sourcePath, const char* resultPath) {
 			int beginIndex = 0;
 			int endIndex = 0;
 
-			int state = analysis.dfa.beginState;
+			int state = dfa.beginState;
 
 			while (endIndex < substr[i].length()) { 
-				auto it_input = analysis.dfa.adjList.find(substr[i][endIndex]);
-				auto it_prestate = it_input->second.find(state);
+				auto it_input = dfa.adjList.find(substr[i][endIndex]);
+				map<int, int>::iterator it_prestate;
+				if (it_input != dfa.adjList.end()) {
+					it_prestate = it_input->second.find(state);
+				}
 				// 找到下一个状态
-				if (it_input != analysis.dfa.adjList.end() && it_prestate != it_input->second.end()) {
+				if (it_input != dfa.adjList.end() && it_prestate != it_input->second.end()) {
 					state = (it_input->second)[state];
 					endIndex++;
-					continue;
+					if (endIndex != substr[i].length()) {
+						continue;
+					}
 				}
 				
-				auto it_isEndState = analysis.dfa.endState.find(state);
+				auto it_isEndState = dfa.endState.find(state);
 
 				// 当前处于结束状态且无法继续匹配，则保存
-				if (it_isEndState != analysis.dfa.endState.end()) { 
+				if (it_isEndState != dfa.endState.end()) { 
 					tokenList.push_back(make_pair(it_isEndState->second, substr[i].substr(beginIndex, endIndex - beginIndex)));
 					beginIndex = endIndex;
-					endIndex++;
+					state = dfa.beginState;
 					continue;
 				}
 
@@ -95,16 +124,15 @@ void test(analyzer& analysis, const char* sourcePath, const char* resultPath) {
 				tokenList.push_back(make_pair(string("ERRORTYPE"), substr[i]));
 				break;
 			}
-			// 整个单词都匹配
-			if (analysis.dfa.endState.find(state) != analysis.dfa.endState.end() && tokenList.size() == 0) {
-
-				auto it_reservedWord = find(analysis.reservedWord.begin(), analysis.reservedWord.end(), substr[i].substr(beginIndex, endIndex - beginIndex));
-				
-				if (it_reservedWord != analysis.reservedWord.end()) {
-					tokenList.push_back(make_pair(analysis.reservedWordLabel, *it_reservedWord));
-				} else {
-					tokenList.push_back(make_pair(analysis.dfa.endState[state], substr[i].substr(beginIndex, endIndex - beginIndex)));
+			// 如果匹配成功，寻找关键字
+			if (state == dfa.beginState) {
+				for (auto it_token = tokenList.begin(); it_token != tokenList.end(); it_token++) {
+					auto it_reservedWord = find(reservedWord.begin(), reservedWord.end(), it_token->second);
+					if (it_reservedWord != reservedWord.end()) {
+						*it_token = make_pair(*it_reservedWord, *it_reservedWord);
+					}
 				}
+
 			}
 			append_output(resultPath,lineNum, tokenList);
 		}
@@ -115,7 +143,7 @@ void test(analyzer& analysis, const char* sourcePath, const char* resultPath) {
 }
 
 // 读入 NFA
-void input(analyzer& analysis, const char* path) {
+void Lexer::inputNFA(const char* path) {
 	ifstream fin;
 
 	fin.open(path);
@@ -125,12 +153,12 @@ void input(analyzer& analysis, const char* path) {
 		exit(0);
 	}
 	string line;
-	fin >> analysis.blank >> analysis.reservedWordLabel;
-
+	fin >> blank;
+	fin >> annotation;
 	// 关键字
 	fin.ignore();
 	getline(fin, line);
-	analysis.reservedWord = split(line, " ");
+	reservedWord = split(line, " ");
 
 	int startNodeNum; //开始结点数目
 	fin >> startNodeNum;
@@ -139,10 +167,19 @@ void input(analyzer& analysis, const char* path) {
 	for (int i = 0; i < startNodeNum; i++) {
 		string tmp;
 		fin >> tmp;
-		analysis.nfa.stateList.push_back(tmp);
-		analysis.nfa.beginState.push_back(tmp);
+		nfa.stateList.push_back(tmp);
+		nfa.beginState.push_back(tmp);
 	}
+	int endNodeNum;
+	fin >> endNodeNum;
 	fin.ignore();
+	for (int i = 0; i < endNodeNum; i++) {
+		getline(fin, line);
+		vector<string> s = split(line, " ");
+		if (s.size() == 2) {
+			nfa.endState[s[0]] = s[1];
+		}
+	}
 
 	// 读入文法
 	while(getline(fin, line)) {		
@@ -151,36 +188,37 @@ void input(analyzer& analysis, const char* path) {
 		vector<string> substr = split(line, " ");
 		
 		// 将文法左侧未添加的状态添加到结点列表
-		if (find(analysis.nfa.stateList.begin(), analysis.nfa.stateList.end(), substr[0]) == analysis.nfa.stateList.end()) {
-			analysis.nfa.stateList.push_back(substr[0]);
+		if (find(nfa.stateList.begin(), nfa.stateList.end(), substr[0]) == nfa.stateList.end()) {
+			nfa.stateList.push_back(substr[0]);
 		}
 		// 添加邻边、输入符号集、文法右侧未添加的状态
 		if (substr.size() == 4) {
-			(analysis.nfa.adjList[substr[2][0]]).insert(make_pair(substr[0], substr[3]));
-			if (find(analysis.nfa.input.begin(), analysis.nfa.input.end(), substr[2][0]) == analysis.nfa.input.end()) {
-				analysis.nfa.input.push_back(substr[2][0]);
+			(nfa.adjList[substr[2][0]]).insert(make_pair(substr[0], substr[3]));
+			if (find(nfa.input.begin(), nfa.input.end(), substr[2][0]) == nfa.input.end()) {
+				nfa.input.push_back(substr[2][0]);
 			}
-			if (find(analysis.nfa.stateList.begin(), analysis.nfa.stateList.end(), substr[3]) == analysis.nfa.stateList.end()) {
-				analysis.nfa.stateList.push_back(substr[3]);
+			if (find(nfa.stateList.begin(), nfa.stateList.end(), substr[3]) == nfa.stateList.end()) {
+				nfa.stateList.push_back(substr[3]);
 			}
-			
-		} else if (substr[2][0] == analysis.blank) {
-			analysis.nfa.endState[substr[0]] = substr[0];
 			// TODO: 下一个 else 语句应该不存在
-		} else {
-			if (analysis.nfa.endState.find("Z") == analysis.nfa.endState.end()) {
-				analysis.nfa.endState["Z"] = "Z";
-			}
-			(analysis.nfa.adjList[substr[2][0]]).insert(make_pair(substr[0], string("Z")));
-		}
+		} 
+		//else if (substr[2][0] == blank) {
+		//	nfa.endState[substr[0]] = substr[0];
+		//	
+		//} else {
+		//	if (nfa.endState.find("Z") == nfa.endState.end()) {
+		//		nfa.endState["Z"] = "Z";
+		//	}
+		//	(nfa.adjList[substr[2][0]]).insert(make_pair(substr[0], string("Z")));
+		//}
 	}
 	fin.close();
 }
 
 // move
-set<string> move(analyzer& analysis, set<string>& state, char a) {
-	auto it_in = analysis.nfa.adjList.find(a);
-	if (it_in == analysis.nfa.adjList.end()) return state;
+set<string> Lexer::move(set<string>& state, char a) {
+	auto it_in = nfa.adjList.find(a);
+	if (it_in == nfa.adjList.end()) return state;
 	set<string> nextState;
 	for (auto it_ele = state.begin(); it_ele != state.end(); it_ele++) {
 		for (auto it_pre = it_in->second.begin(); it_pre != it_in->second.end(); it_pre++) {
@@ -193,9 +231,9 @@ set<string> move(analyzer& analysis, set<string>& state, char a) {
 }
 
 // 求闭包
-void enClousure(analyzer& analysis, set<string>& state) {
-	auto it_en = analysis.nfa.adjList.find(analysis.blank);
-	if (it_en == analysis.nfa.adjList.end()) return;
+void Lexer::enClousure(set<string>& state) {
+	auto it_en = nfa.adjList.find(blank);
+	if (it_en == nfa.adjList.end()) return;
 
 	vector<string> v;
 	int index = 0;
@@ -215,16 +253,16 @@ void enClousure(analyzer& analysis, set<string>& state) {
 }
 
 // 最小化 DFA
-void NFAtoDFA(analyzer& analysis) {
+void Lexer::NFAtoDFA() {
 	vector<set<string>> subSet;
 	// 所有开始结点
 	set<string> beginState;
-	for (auto it = analysis.nfa.beginState.begin(); it != analysis.nfa.beginState.end(); it++) {
-		beginState.insert(*it);	
+	for (auto it = nfa.beginState.begin(); it != nfa.beginState.end(); it++) {
+		beginState.insert(*it);
 	}
-	enClousure(analysis, beginState);
-	analysis.dfa.beginState = 0;
-	analysis.dfa.stateList.push_back(0);
+	enClousure(beginState);
+	dfa.beginState = 0;
+	dfa.stateList.push_back(0);
 	subSet.push_back(beginState);
 
 	vector<int> isTested(subSet.size(), 0);
@@ -233,13 +271,13 @@ void NFAtoDFA(analyzer& analysis) {
 		if (isTested[i]) continue;
 		isTested[i] = 1;
 		set<string> tmp;
-		for (auto it_input = analysis.nfa.input.begin(); it_input != analysis.nfa.input.end(); it_input++) { // 对于每个输入字符
-			if (*it_input == analysis.blank)continue;// 去掉空白输入
+		for (auto it_input = nfa.input.begin(); it_input != nfa.input.end(); it_input++) { // 对于每个输入字符
+			if (*it_input == blank)continue;// 去掉空白输入
 
-			if (i == 0)analysis.dfa.input.push_back(*it_input);
+			if (i == 0) dfa.input.push_back(*it_input);
 	
-			tmp = move(analysis, subSet[i], *it_input);
-			enClousure(analysis, tmp);
+			tmp = move(subSet[i], *it_input);
+			enClousure(tmp);
 			if (tmp.size() == 0)continue;
 
 			auto it_tmp = find(subSet.begin(), subSet.end(), tmp);
@@ -251,24 +289,25 @@ void NFAtoDFA(analyzer& analysis) {
 				index = subSet.size() - 1;
 				// 是否是终态
 				for (auto it = tmp.begin(); it != tmp.end(); it++) {
-					auto it_key = analysis.nfa.endState.find(*it);
-					if (it_key != analysis.nfa.endState.end()) {
-						analysis.dfa.endState[index] = it_key->second;
+					auto it_key = nfa.endState.find(*it);
+					if (it_key != nfa.endState.end()) {
+						dfa.endState[index] = it_key->second;
 						break;
 					}
 				}			
-				analysis.dfa.stateList.push_back(index);
+				dfa.stateList.push_back(index);
 			}
 
-			analysis.dfa.adjList[*it_input][i] = index;
+			dfa.adjList[*it_input][i] = index;
 		}
 	}
 }
 
 int main() {
-	analyzer analysis;
-	input(analysis, "NFAtest.txt");
-	NFAtoDFA(analysis);
-	test(analysis, "source.txt", "result.txt");
+	Lexer analysis;
+	analysis.inputNFA("NFAtest.txt");
+	analysis.NFAtoDFA();
+	analysis.analyze("source.txt", "result.txt");
+	
 	return 0;
 }

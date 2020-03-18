@@ -1,15 +1,10 @@
-1de
-_de
-test test2
-t21
-My_dsa
-break
-for
-de2_D
-2.2
-2e1
-1+2i
-2i
-2.33
-.454
-.4.4
+	for (int i = 0; i < substr.size(); i++) { //开始结点数目
+//开始结点数目
+				//开始结点数目
+				if (it_input != dfa.adjList.end() && it_prestate != it_input->second.end()) {
+					state = (it_input->second)[state];
+					endIndex++;
+					if (endIndex != substr[i].length()) {
+						continue;
+					}
+				}

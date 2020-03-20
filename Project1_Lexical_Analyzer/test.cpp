@@ -12,8 +12,8 @@ public:
 	NFA nfa;
 	DFA dfa;
 	char blank; // 表示文法中的空
+	string endtoken;
 	string annotation; // 表示注释开始
-	string reservedWordLabel; 
 	vector<string> reservedWord;
 	set<string> move(set<string>& state, char a);
 	void enClousure(set<string>& state);
@@ -37,8 +37,10 @@ std::vector<std::string> split(std::string str, std::string pattern)
 		if (pos < size)
 		{
 			std::string s = str.substr(i, pos - i);
-			result.push_back(s);
 			i = pos + pattern.size() - 1;
+			if (s.size() != 0) {
+				result.push_back(s);
+			}
 		}
 	}
 	return result;
@@ -138,7 +140,9 @@ void Lexer::analyze( const char* sourcePath, const char* resultPath) {
 		}
 		lineNum++;
 	}
-
+	vector<pair<string, string>> tmp_end;
+	tmp_end.push_back(make_pair(endtoken, endtoken));
+	append_output(resultPath, 0, tmp_end);
 	fsource.close();
 }
 
@@ -153,7 +157,7 @@ void Lexer::inputNFA(const char* path) {
 		exit(0);
 	}
 	string line;
-	fin >> blank;
+	fin >> blank >> endtoken;
 	fin >> annotation;
 	// 关键字
 	fin.ignore();
@@ -305,9 +309,9 @@ void Lexer::NFAtoDFA() {
 
 int main() {
 	Lexer analysis;
-	analysis.inputNFA("NFAtest.txt");
+	analysis.inputNFA("Chomsky_III.txt");
 	analysis.NFAtoDFA();
-	analysis.analyze("source.txt", "result.txt");
+	analysis.analyze("source.txt", "..\\..\\.\\Project2_Syntactic_Analyzer\\Project2_Syntactic_Analyzer\\Project2_Syntactic_Analyzer\\result.txt");
 	
 	return 0;
 }

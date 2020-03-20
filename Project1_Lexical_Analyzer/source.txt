@@ -1,13 +1,4 @@
-	for (int i = 0; i < substr.size(); i++) { //开始结点数目
-//开始结点数目
-				//开始结点数目
-				if (it_input != dfa.adjList.end() && it_prestate != it_input->second.end()) {
-					state = (it_input->second)[state];
-					endIndex++;
-					if (endIndex != substr[i].length()) {
-						continue;
-					}
-				}
-	analysis.inputNFA("NFAtest.txt");
-	analysis.NFAtoDFA();
-	analysis.analyze("source.txt", "result.txt");
+int main (){
+if (c == 0) { }
+else { }
+}

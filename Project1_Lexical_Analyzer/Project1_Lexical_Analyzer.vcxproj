@@ -19,13 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DFA.cpp" />
-    <ClCompile Include="NFA.cpp" />
+    <ClCompile Include="Lexer.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DFA.h" />
-    <ClInclude Include="NFA.h" />
+    <ClInclude Include="DFA_NFA.h" />
+    <ClInclude Include="Lexer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

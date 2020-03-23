@@ -1,0 +1,34 @@
+struct Mystruct {
+    int x;
+    char y;
+};
+int main (){ // 主函数
+    string s = "ThisIsaString";
+    char char1 = 'a';
+    bool bool1 = true;
+    // 初始化测试
+    float float1 = 1e3;
+    double double1=3.4;
+    int int1 = 4;
+    int matrix[2];
+    complex complex1 = 2+2i;
+    Mystruct Ms;
+    // 算术单元测试
+    int add = int1 + double1;
+    int1++;
+    int1+=2;
+    complex1 = 3i; 
+    // 结构测试
+    if (int1 == 0) {
+        martix[0] = 2&2;
+    }
+    else {
+        martix[0] = fun(int1);
+    }
+    for(int1 = 0;int1 < 3;int1++){
+        Ms.x++;
+        continue;
+        Ms.y = 'a';
+    }
+    return 0;
+}

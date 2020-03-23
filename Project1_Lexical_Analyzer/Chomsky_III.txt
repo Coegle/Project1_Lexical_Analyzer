@@ -1,6 +1,6 @@
 $ #
 //
-break continue return case char int if switch for void float double short long unsigned signed do while else sizeof goto case default struct union const volatile  do typedef static auto register extern
+break continue return char complex int if switch for void float double short long unsigned signed do while else sizeof goto case default struct union const volatile typedef static auto register extern true false bool
 9 _integer_S _decimal_S _complexNumber_S _scientificNotation_S _identifier_S _op_S _delimiter_S _char_S _string_S
 54
 _integer_Z1 int_const
